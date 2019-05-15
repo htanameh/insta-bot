@@ -1,0 +1,37 @@
+{
+  "hashtags": [
+    "ManUtd", "Mufc", "Uefa", "Arsenal", "AFC", "Chelsea", "ManCity", "Mcfc", "UCL", "CL", "UEL", "EPL",
+    "Barcelona", "RM", "RealMadrid", "laliga", "Barca", "Messi", "Ronaldo", "Liverpool", "tottenham", "Hazard"
+  ],
+  "comments": [
+    "7 days without football makes one weak", "Respect All, Fear None", "It’s all about the TEAM!, Let’s roll in deep", "All Out, All Game, All Season, Fight ON!",
+    "Some wish for it, we work for it", "Pride and Passion!, Hustle hit and never quit ->!!", "Play hard, smart and together... Just Play... Leave it all on the Field!!"
+  ],
+  "page_comment_tags": ["Are you a footbal fan? Then check us out :)", "Follow us for football feeds", "For top match football results and happenings --> follow us"],
+  "settings": {
+    "run_every_x_hours": 4,
+    "like_ratio": 1,
+    "comment_ratio": 0.75,
+    "follow_ratio": 0.50,
+    "do_unfollows": true,
+    "unfollow_after_days": 2,
+    "headless": true
+  },
+  "selectors": {
+    "home_to_login_button": ".izU2O a",
+    "username_field": "input[type=\"text\"]",
+    "password_field": "input[type=\"password\"]",
+    "login_button": ".L3NKy",
+    "post_heart_grey": "span.glyphsSpriteHeart__outline__24__grey_9",
+    "post_username": "div.e1e1d > h2 > a",
+    "post_follow_link": "div.bY2yH > button",
+    "post_like_button": "span.fr66n > button",
+    "post_follow_button": "span.oW_lN._1OSdk > button",
+    "post_close_button": "button.ckWGn",
+    "user_unfollow_button": "span > button",
+    "user_unfollow_confirm_button": "div.mt3GC > button.aOOlW.-Cab_",
+    "post_comment_text_area": "form > textarea",
+    "post_comment_button": "form > button",
+    "followers_count": "a > span"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "sample-insta-bot",
+  "version": "1.0.0",
+  "description": "Insta bot with Node.js and Puppeteer",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV='production' node index.js",
+    "dev": "NODE_ENV='development' node index.js"
+  },
+  "author": "Raja",
+  "license": "MIT",
+  "dependencies": {
+    "pouchdb": "^7.0.0",
+    "puppeteer": "^1.5.0",
+    "shuffle-array": "^1.0.1",
+    "winston": "^3.2.1"
+  }
+}
