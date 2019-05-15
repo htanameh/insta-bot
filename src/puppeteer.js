@@ -33,7 +33,7 @@ let run = async function () {
 
     // Loop through shuffled hashtags
     let hashtags = shuffle(cnf.hashtags);
-    let hashtagList = hashtags[Math.floor(Math.random() * 6)];
+    let hashtagList = hashtags[Math.floor(Math.random() * 5)];
 
     for (let hl = 0; hl < hashtagList.length; hl++) {
 
