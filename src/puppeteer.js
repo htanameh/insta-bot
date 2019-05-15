@@ -61,6 +61,8 @@ let run = async function () {
                     return Promise.resolve(element ? element.innerHTML : '');
                 }, cnf.selectors.post_username);
 
+                logger.info('---> Evaluate for username ' + username);
+
                 let followStatus = await page.evaluate(x => {
                     let element = document.querySelector(x);
                     return Promise.resolve(element ? element.innerHTML : '');
@@ -70,8 +72,9 @@ let run = async function () {
                 if (hasEmptyHeart !== null && Math.random() < cnf.settings.like_ratio) {
                     try {
                         await page.click(cnf.selectors.post_like_button);
+                        logger.info('---> like for username ' + username);
                     } catch (err) {
-                        console.log('---> like error ' + err);
+                        logger.error('---> like error ' + err);
                     }
                     await page.waitFor(10000 + Math.floor(Math.random() * 2000));
                 }
@@ -85,8 +88,9 @@ let run = async function () {
                         let commentMessage = `${comment[Math.floor(Math.random() * 7)]} .... ${pageCommentTag[Math.floor(Math.random() * 3)]}`;
                         await page.keyboard.type(commentMessage);
                         await page.click(cnf.selectors.post_comment_button);
+                        logger.info('---> comment for username ' + username);
                     } catch (err) {
-                        console.log('---> comment error ' + err);
+                        logger.error('---> comment error ' + err);
                     }
                     await page.waitFor(10000 + Math.floor(Math.random() * 2000));
                 }
@@ -100,15 +104,15 @@ let run = async function () {
                     await ops.addFollow(username).then(() => {
                         return page.click(cnf.selectors.post_follow_link);
                     }).then(() => {
-                        console.log('---> follow for ' + username);
+                        logger.info('---> follow for ' + username);
                         return page.waitFor(10000 + Math.floor(Math.random() * 5000));
                     }).catch(() => {
-                        console.log('---> Already following ' + username);
+                        logger.error('---> Already following ' + username);
                     });
                 }
 
                 // Close post
-                await page.click(cnf.selectors.post_close_button).catch(() => console.log(':::> Error closing post'));
+                await page.click(cnf.selectors.post_close_button).catch(() => logger.error(':::> Error closing post'));
             }
         }
 
@@ -136,7 +140,7 @@ let run = async function () {
                 let element = document.querySelector(x);
                 return Promise.resolve(element ? element.title : '');
             }, cnf.selectors.followers_count);
-            console.log('---> Followers count for ' + user + ' is ' + followersCount);
+            logger.info('---> Followers count for ' + user + ' is ' + followersCount);
             if (followersCount != '' && Number(followersCount) < 1000) {
                 let followStatus = await page.evaluate(x => {
                     let element = document.querySelector(x);
@@ -144,14 +148,14 @@ let run = async function () {
                 }, cnf.selectors.user_unfollow_button);
 
                 if (followStatus === 'Following') {
-                    console.log('---> unfollow ' + user);
+                    logger.info('---> unfollow ' + user);
                     await page.click(cnf.selectors.user_unfollow_button);
                     await page.waitFor(750);
                     await page.click(cnf.selectors.user_unfollow_confirm_button);
                     ops.unFollow(user);
                     await page.waitFor(15000 + Math.floor(Math.random() * 5000));
                 } else {
-                    console.log('---> archive ' + user);
+                    logger.info('---> archive ' + user);
                     ops.unFollow(user);
                 }
             }
