@@ -40,6 +40,9 @@ let run = async function () {
         await page.goto('https://www.instagram.com/explore/tags/' + hashtags[hl] + '/?hl=en');
         logger.info('==> Search for hashtag ' + hashtags[hl]);
 
+        let hashtagLikes = 0;
+        let hashtagComments = 0;
+        let hashtagFollows = 0;
         // Loop through the latest 24 posts (8 rows, 3 posts in each row)
         for (let r = 1; r < 9; r++) {
             for (let c = 1; c < 4; c++) {
@@ -73,6 +76,7 @@ let run = async function () {
                     try {
                         await page.click(cnf.selectors.post_like_button);
                         logger.info('---> like for username ' + username);
+                        hashtagLikes = hashtagLikes + 1;
                     } catch (err) {
                         logger.error('---> like error ' + err);
                     }
@@ -89,6 +93,7 @@ let run = async function () {
                         await page.keyboard.type(commentMessage);
                         await page.click(cnf.selectors.post_comment_button);
                         logger.info('---> comment for username ' + username);
+                        hashtagComments = hashtagComments + 1;
                     } catch (err) {
                         logger.error('---> comment error ' + err);
                     }
@@ -105,6 +110,7 @@ let run = async function () {
                         return page.click(cnf.selectors.post_follow_link);
                     }).then(() => {
                         logger.info('---> follow for ' + username);
+                        hashtagFollows = hashtagFollows + 1;
                         return page.waitFor(10000 + Math.floor(Math.random() * 5000));
                     }).catch(() => {
                         logger.error('---> Already following ' + username);
@@ -115,7 +121,7 @@ let run = async function () {
                 await page.click(cnf.selectors.post_close_button).catch(() => logger.error(':::> Error closing post'));
             }
         }
-
+        logger.info(`==> Search for hashtag-complete ${hashtags[hl]}, totalLikes : ${hashtagLikes}, totalFollows : ${hashtagFollows}, totalComments : ${hashtagComments}`);
     }
 
     // Unfollows

@@ -1,7 +1,7 @@
 {
   "hashtags": [
-    "ManUtd", "Mufc", "Uefa", "Arsenal", "AFC", "Chelsea", "ManCity", "Mcfc", "UCL", "CL", "UEL", "EPL",
-    "Barcelona", "RM", "RealMadrid", "laliga", "Barca", "Messi", "Ronaldo", "Liverpool", "tottenham", "Hazard"
+    "ManUtd", "Mufc", "Uefa", "Arsenal", "Chelsea", "ManCity", "Pogba", "Ajax",
+    "Barcelona", "RealMadrid", "laliga", "Barca", "Messi", "Ronaldo", "Liverpool", "tottenham", "Hazard"
   ],
   "comments": [
     "7 days without football makes one weak", "Respect All, Fear None", "It’s all about the TEAM!, Let’s roll in deep", "All Out, All Game, All Season, Fight ON!",
@@ -9,10 +9,10 @@
   ],
   "page_comment_tags": ["Are you a footbal fan? Then check us out :)", "Follow us for football feeds", "For top match football results and happenings --> follow us"],
   "settings": {
-    "run_every_x_hours": 4,
-    "like_ratio": 1,
-    "comment_ratio": 0.75,
-    "follow_ratio": 0.50,
+    "run_every_x_hours": 6,
+    "like_ratio": 0.75,
+    "comment_ratio": 0.55,
+    "follow_ratio": 0.35,
     "do_unfollows": true,
     "unfollow_after_days": 2,
     "headless": true
