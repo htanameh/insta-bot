@@ -33,12 +33,13 @@ let run = async function () {
 
     // Loop through shuffled hashtags
     let hashtags = shuffle(cnf.hashtags);
+    let hashtagList = hashtags[Math.floor(Math.random() * 6)];
 
-    for (let hl = 0; hl < hashtags.length; hl++) {
+    for (let hl = 0; hl < hashtagList.length; hl++) {
 
         // Search for hashtags
-        await page.goto('https://www.instagram.com/explore/tags/' + hashtags[hl] + '/?hl=en');
-        logger.info('==> Search for hashtag ' + hashtags[hl]);
+        await page.goto('https://www.instagram.com/explore/tags/' + hashtagList[hl] + '/?hl=en');
+        logger.info('==> Search for hashtag ' + hashtagList[hl]);
 
         let hashtagLikes = 0;
         let hashtagComments = 0;
@@ -121,7 +122,7 @@ let run = async function () {
                 await page.click(cnf.selectors.post_close_button).catch(() => logger.error(':::> Error closing post'));
             }
         }
-        logger.info(`==> Search for hashtag-complete ${hashtags[hl]}, totalLikes : ${hashtagLikes}, totalFollows : ${hashtagFollows}, totalComments : ${hashtagComments}`);
+        logger.info(`==> Search for hashtag-complete ${hashtagList[hl]}, totalLikes : ${hashtagLikes}, totalFollows : ${hashtagFollows}, totalComments : ${hashtagComments}`);
     }
 
     // Unfollows
