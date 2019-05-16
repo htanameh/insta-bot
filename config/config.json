@@ -1,9 +1,9 @@
 {
   "hashtags": [
-    ["ManUtd", "Uefa", "Arsenal", "Chelsea", "ManCity"],
-    ["Barcelona", "RealMadrid", "laliga", "Barca", "Messi"], 
-    ["Hazard", "ligue1", "seriea", "Pogba", "Ajax"],
-    ["Neymar", "Ronaldo", "Liverpool", "tottenham"]
+    ["ManUtdfc", "Uefa", "Arsenalfc", "Chelseafc", "ManCityfc", "Suarez"],
+    ["fcBarcelona", "RealMadridfc", "laliga", "Messi", "soccer", "sevillafc"], 
+    ["Hazard", "ligue1", "seriea", "Pogba", "Ajax", "psg", "borussiadortmund"],
+    ["Neymar", "Ronaldo", "Liverpool", "tottenham", "juventus", "fcbayern"]
   ],
   "comments": [
     "7 days without football makes one weak", "Respect All, Fear None", "It’s all about the TEAM!, Let’s roll in deep", "All Out, All Game, All Season, Fight ON!",
@@ -13,8 +13,8 @@
   "settings": {
     "run_every_x_hours": 6,
     "like_ratio": 0.75,
-    "comment_ratio": 0.45,
-    "follow_ratio": 0.25,
+    "comment_ratio": 0.25,
+    "follow_ratio": 0.50,
     "do_unfollows": true,
     "unfollow_after_days": 2,
     "headless": true

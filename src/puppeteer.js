@@ -35,6 +35,13 @@ let run = async function () {
     let hashtags = shuffle(cnf.hashtags);
     let hashtagList = hashtags[Math.floor(Math.random() * 5)];
 
+    let startDateTime = new Date();
+    let startDate = startDateTime.toISOString().slice(0,10);
+    let startTime = startDateTime.toISOString().slice(11,19);
+    let totalLikes = 0;
+    let totalComments = 0;
+    let totalFollows = 0;
+
     for (let hl = 0; hl < hashtagList.length; hl++) {
 
         // Search for hashtags
@@ -122,8 +129,24 @@ let run = async function () {
                 await page.click(cnf.selectors.post_close_button).catch(() => logger.error(':::> Error closing post'));
             }
         }
+        totalLikes = totalLikes + hashtagLikes;
+        totalComments = totalComments + hashtagComments;
+        totalFollows = totalFollows + hashtagFollows;
         logger.info(`==> Search for hashtag-complete ${hashtagList[hl]}, totalLikes : ${hashtagLikes}, totalFollows : ${hashtagFollows}, totalComments : ${hashtagComments}`);
     }
+
+    let endDateTime = new Date();
+    let endDate = endDateTime.toISOString().slice(0,10);
+    let endTime = endDateTime.toISOString().slice(11,19);
+    logger.info(`==> Job Complete :
+     Start Date : ${startDate}, 
+     Start Time : ${startTime},
+     End Date : ${endDate},
+     End Time : ${endTime},
+     Total Likes : ${totalLikes},
+     Total Comments : ${totalComments},
+     Total Follows : ${totalFollows}`
+    );
 
     // Unfollows
     if (cnf.settings.do_unfollows) {
