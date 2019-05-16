@@ -4,6 +4,7 @@ const shuffle = require('shuffle-array');
 let ops = require('../src/pouchDB');
 let cnf = require('../config/config.json');
 let logger = require('../log/logger');
+let sendMail = require('./send-mail');
 
 let run = async function () {
 
@@ -35,12 +36,15 @@ let run = async function () {
     let hashtags = shuffle(cnf.hashtags);
     let hashtagList = hashtags[Math.floor(Math.random() * 5)];
 
-    let startDateTime = new Date();
-    let startDate = startDateTime.toISOString().slice(0,10);
-    let startTime = startDateTime.toISOString().slice(11,19);
+    var indiaTime = new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" });
+    let startDateTime = new Date(indiaTime);
+    let startDate = startDateTime.toLocaleString().slice(0, 10);
+    let startTime = startDateTime.toLocaleString().slice(10, 15);
     let totalLikes = 0;
     let totalComments = 0;
     let totalFollows = 0;
+
+    sendMail.sendStartMail("rajasmart48@gmail.com,akhilkamesh97@gmail.com", "footballimpulse", startDate, startTime);
 
     for (let hl = 0; hl < hashtagList.length; hl++) {
 
@@ -96,7 +100,7 @@ let run = async function () {
                     try {
                         await page.click(cnf.selectors.post_comment_text_area);
                         let comment = shuffle(cnf.comments);
-                        let pageCommentTag= shuffle(cnf.page_comment_tags);
+                        let pageCommentTag = shuffle(cnf.page_comment_tags);
                         let commentMessage = `${comment[Math.floor(Math.random() * 7)]} .... ${pageCommentTag[Math.floor(Math.random() * 3)]}`;
                         await page.keyboard.type(commentMessage);
                         await page.click(cnf.selectors.post_comment_button);
@@ -135,9 +139,9 @@ let run = async function () {
         logger.info(`==> Search for hashtag-complete ${hashtagList[hl]}, totalLikes : ${hashtagLikes}, totalFollows : ${hashtagFollows}, totalComments : ${hashtagComments}`);
     }
 
-    let endDateTime = new Date();
-    let endDate = endDateTime.toISOString().slice(0,10);
-    let endTime = endDateTime.toISOString().slice(11,19);
+    let endDateTime = new Date(indiaTime);
+    let endDate = endDateTime.toLocaleString().slice(0, 10);
+    let endTime = endDateTime.toLocaleString().slice(10, 15);
     logger.info(`==> Job Complete :
      Start Date : ${startDate}, 
      Start Time : ${startTime},
@@ -147,6 +151,7 @@ let run = async function () {
      Total Comments : ${totalComments},
      Total Follows : ${totalFollows}`
     );
+    sendMail.sendCompletionMail("rajasmart48@gmail.com,akhilkamesh97@gmail.com", "footballimpulse", startDate, endTime, totalLikes, totalComments, totalFollows);
 
     // Unfollows
     if (cnf.settings.do_unfollows) {
