@@ -139,6 +139,7 @@ let run = async function () {
         logger.info(`==> Search for hashtag-complete ${hashtagList[hl]}, totalLikes : ${hashtagLikes}, totalFollows : ${hashtagFollows}, totalComments : ${hashtagComments}`);
     }
 
+    indiaTime = new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" });
     let endDateTime = new Date(indiaTime);
     let endDate = endDateTime.toLocaleString().slice(0, 10);
     let endTime = endDateTime.toLocaleString().slice(10, 15);
