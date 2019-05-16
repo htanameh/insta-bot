@@ -34,7 +34,7 @@ let run = async function () {
 
     // Loop through shuffled hashtags
     let hashtags = shuffle(cnf.hashtags);
-    let hashtagList = hashtags[Math.floor(Math.random() * 5)];
+    let hashtagList = hashtags[Math.floor(Math.random() * 4)];
 
     var indiaTime = new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" });
     let startDateTime = new Date(indiaTime);
