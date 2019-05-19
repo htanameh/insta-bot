@@ -96,21 +96,21 @@ let run = async function () {
                 }
 
                 // Decide to comment post
-                if (hasEmptyComment !== null && Math.random() < cnf.settings.comment_ratio) {
-                    try {
-                        await page.click(cnf.selectors.post_comment_text_area);
-                        let comment = shuffle(cnf.comments);
-                        let pageCommentTag = shuffle(cnf.page_comment_tags);
-                        let commentMessage = `${comment[Math.floor(Math.random() * 7)]} .... ${pageCommentTag[Math.floor(Math.random() * 3)]}`;
-                        await page.keyboard.type(commentMessage);
-                        await page.click(cnf.selectors.post_comment_button);
-                        logger.info('---> comment for username ' + username);
-                        hashtagComments = hashtagComments + 1;
-                    } catch (err) {
-                        logger.error('---> comment error ' + err);
-                    }
-                    await page.waitFor(10000 + Math.floor(Math.random() * 2000));
-                }
+                // if (hasEmptyComment !== null && Math.random() < cnf.settings.comment_ratio) {
+                //     try {
+                //         await page.click(cnf.selectors.post_comment_text_area);
+                //         let comment = shuffle(cnf.comments);
+                //         let pageCommentTag = shuffle(cnf.page_comment_tags);
+                //         let commentMessage = `${comment[Math.floor(Math.random() * 7)]} .... ${pageCommentTag[Math.floor(Math.random() * 3)]}`;
+                //         await page.keyboard.type(commentMessage);
+                //         await page.click(cnf.selectors.post_comment_button);
+                //         logger.info('---> comment for username ' + username);
+                //         hashtagComments = hashtagComments + 1;
+                //     } catch (err) {
+                //         logger.error('---> comment error ' + err);
+                //     }
+                //     await page.waitFor(10000 + Math.floor(Math.random() * 2000));
+                // }
 
 
                 // Decide to follow user
