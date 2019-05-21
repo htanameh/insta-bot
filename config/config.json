@@ -1,9 +1,9 @@
 {
   "hashtags": [
-    ["ManUtdfc", "Uefa", "Arsenalfc", "Chelseafc", "ManCityfc", "Suarez", "lukamodric"],
-    ["fcBarcelona", "RealMadridfc", "laliga", "Messi", "soccer", "sevillafc", "solskjaer"], 
-    ["Hazard", "ligue1", "seriea", "Pogba", "Ajax", "psg", "borussiadortmund", "zidane"],
-    ["Neymar", "Ronaldo", "Liverpool", "tottenham", "juventus", "fcbayern", "klopp"]
+    ["ManUtdfc", "Uefa", "Arsenalfc", "Chelseafc", "ManCityfc", "Suarez", "lukamodric", "fcBarcelona", "RealMadridfc", "ligue1", "seriea"],
+    ["fcBarcelona", "RealMadridfc", "laliga", "Messi", "soccer", "sevillafc", "solskjaer", "Chelseafc", "ManCityfc", "Liverpool", "tottenham"], 
+    ["Hazard", "ligue1", "seriea", "Pogba", "Ajax", "psg", "borussiadortmund", "zidane", "Neymar", "Ronaldo", "ManUtdfc", "Uefa"],
+    ["Neymar", "Ronaldo", "Liverpool", "tottenham", "juventus", "fcbayern", "klopp", "seriea", "Pogba", "laliga", "Messi"]
   ],
   "comments": [
     "7 days without football makes one weak", "Respect All, Fear None", "It’s all about the TEAM!, Let’s roll in deep", "All Out, All Game, All Season, Fight ON!",
@@ -14,7 +14,7 @@
     "run_every_x_hours": 6,
     "like_ratio": 0.75,
     "comment_ratio": 0.25,
-    "follow_ratio": 0.50,
+    "follow_ratio": 0.75,
     "do_unfollows": true,
     "unfollow_after_days": 2,
     "headless": true
